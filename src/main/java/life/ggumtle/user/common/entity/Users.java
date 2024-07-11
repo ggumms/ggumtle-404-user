@@ -21,6 +21,12 @@ public class Users implements UserDetails {
     @Id
     private Long id;
 
+    @Column("provider_id")
+    private String providerId;
+
+    @Column("provider")
+    private Provider provider;
+
     @Column("internal_id")
     private String internalId;
 
@@ -29,6 +35,9 @@ public class Users implements UserDetails {
 
     @Column("profile_image")
     private String profileImage;
+
+    @Column("survey_status")
+    private Boolean surveyStatus = false;
 
     @Column("created_at")
     @CreatedDate
