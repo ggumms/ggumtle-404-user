@@ -13,13 +13,13 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController
-@RequestMapping("/public-info")
+@RequestMapping("/public")
 @RequiredArgsConstructor
 public class PublicInfoController {
 
     private final PublicInfoService publicInfoService;
 
-    @GetMapping("/check-nickname")
+    @GetMapping("/duplicate-nickname")
     public Mono<ResponseEntity<String>> checkNickname(@RequestParam String nickname) {
         return publicInfoService.checkNicknameDuplicate(nickname)
                 .flatMap(isDuplicate -> {
