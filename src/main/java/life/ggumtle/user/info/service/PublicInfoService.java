@@ -24,11 +24,20 @@ public class PublicInfoService {
     }
 
     public Mono<List<String>> getSurveyColumns() {
-        Field[] fields = Survey.class.getDeclaredFields();
-        List<String> columns = Arrays.stream(fields)
-                .map(Field::getName)
-                .filter(fieldName -> !fieldName.equals("id") && !fieldName.equals("userId"))
-                .collect(Collectors.toList());
+        List<String> columns = Arrays.asList(
+                "환경",
+                "자선활동",
+                "인간관계",
+                "휴식",
+                "연애",
+                "운동",
+                "여행",
+                "언어",
+                "문화",
+                "도전",
+                "취미",
+                "직장"
+        );
         return Mono.just(columns);
     }
 }
